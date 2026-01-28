@@ -1,4 +1,5 @@
 using Auth_Level2_Cookie.Data;
+using Auth_Level2_Cookie.Middleware;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,6 +30,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<Middleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();
